@@ -29,3 +29,11 @@ func TestOnePlus1(t *testing.T) {
 		t.Errorf("it should say %q but get %q", expected, result)
 	}
 }
+
+func TestTwoPlus1(t *testing.T) {
+	result := captcha.Generate(2, 2, 1, 1)
+	expected := "Two + 1"
+	if result != expected {
+		t.Errorf("it should say %q but get %q", expected, result)
+	}
+}

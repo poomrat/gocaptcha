@@ -9,7 +9,7 @@ func Generate(pattern int, firstOp int, operator int, secondOp int) string {
 	case 1:
 		return fmt.Sprintf("%d %s %s", firstOp, "+", toWord(secondOp))
 	case 2:
-		return "One + 1"
+		return fmt.Sprintf("%s %s %d", toWord(firstOp), "+", secondOp)
 	default:
 		return "default"
 	}
