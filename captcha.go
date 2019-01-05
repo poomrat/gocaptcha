@@ -7,50 +7,29 @@ import (
 func Generate(pattern int, firstOp int, operator int, secondOp int) string {
 	switch pattern {
 	case 1:
-		return fmt.Sprintf("%d %s %s", firstOp, lookupOp(operator), toWord(secondOp))
+		return fmt.Sprintf("%d %s %s", firstOp, operatorMap[operator], numberMap[secondOp])
 	case 2:
-		return fmt.Sprintf("%s %s %d", toWord(firstOp), lookupOp(operator), secondOp)
+		return fmt.Sprintf("%s %s %d", numberMap[firstOp], operatorMap[operator], secondOp)
 	default:
 		return "default"
 	}
 }
 
-func lookupOp(op int) string {
-	switch op {
-	case 1:
-		return "+"
-	case 2:
-		return "-"
-	case 3:
-		return "*"
-	default:
-		return "UnknownOp"
-	}
+var operatorMap = map[int]string{
+	1: "+",
+	2: "-",
+	3: "*",
 }
 
-func toWord(num int) string {
-	switch num {
-	case 0:
-		return "Zero"
-	case 1:
-		return "One"
-	case 2:
-		return "Two"
-	case 3:
-		return "Three"
-	case 4:
-		return "Four"
-	case 5:
-		return "Five"
-	case 6:
-		return "Six"
-	case 7:
-		return "Seven"
-	case 8:
-		return "Eight"
-	case 9:
-		return "Nine"
-	default:
-		return "Unknown"
-	}
+var numberMap = map[int]string{
+	0: "Zero",
+	1: "One",
+	2: "Two",
+	3: "Three",
+	4: "Four",
+	5: "Five",
+	6: "Six",
+	7: "Seven",
+	8: "Eight",
+	9: "Nine",
 }
