@@ -4,24 +4,24 @@ import (
 	"fmt"
 )
 
-func Generate(pattern int, firstOp int, operator int, secondOp int) string {
+func Generate(pattern, firstOp, operator, secondOp int) string {
 	switch pattern {
 	case 1:
-		return fmt.Sprintf("%d %s %s", firstOp, operatorMap[operator], numberMap[secondOp])
+		return fmt.Sprintf("%d %s %s", firstOp, operatorToText[operator], numeberToText[secondOp])
 	case 2:
-		return fmt.Sprintf("%s %s %d", numberMap[firstOp], operatorMap[operator], secondOp)
+		return fmt.Sprintf("%s %s %d", numeberToText[firstOp], operatorToText[operator], secondOp)
 	default:
 		return "default"
 	}
 }
 
-var operatorMap = map[int]string{
+var operatorToText = map[int]string{
 	1: "+",
 	2: "-",
 	3: "*",
 }
 
-var numberMap = map[int]string{
+var numeberToText = map[int]string{
 	0: "Zero",
 	1: "One",
 	2: "Two",
